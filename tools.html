@@ -5,9 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <style>
    body {
-    background-color: white;
+    background-color: silver;
    }
+   h1,h2,p,a{
+		font-family: sans-serif;
+		font-weight: normal;
+	}
+ 
+	.jam-digital-malasngoding {
+		overflow: hidden;
+		width: 330px;
+		margin: 20px auto;
+		border: 5px solid #efefef;
+	}
+	.kotak{
+		float: left;
+		width: 110px;
+		height: 100px;
+		background-color: #189fff;
+	}
+	.jam-digital-malasngoding p {
+		color: #fff;
+		font-size: 36px;
+		text-align: center;
+		margin-top: 30px;
+	}
+ 
  </style>
+ <script type="text/javascript">
+ window.onload = function() { jam(); }
+
+ function jam() {
+  var e = document.getElementById('jam'),
+  d = new Date(), h, m, s;
+  h = d.getHours();
+  m = set(d.getMinutes());
+  s = set(d.getSeconds());
+
+  e.innerHTML = h +':'+ m +':'+ s;
+
+  setTimeout('jam()', 1000);
+ }
+
+ function set(e) {
+  e = e < 10 ? '0'+ e : e;
+  return e;
+ }
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -15,15 +59,16 @@
 <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-   <table border="1">
+  <center><h3><b>TOOLS | XATANIC22</b></h3></center>
+  <center><table border="2">
         <tr>
-            <td><b>TIKTOK DOWNLOADER</b></td>
-            <td><center><a href="tikdl.html">[ ➠ ]</a></center></td>
+            <td><b>TIKTOK DOWNLOADER-</b></td>
+            <td><center><a href="tikdl.html">[ ➠ ] KLIK DISINI</a></center></td>
         </tr>
-        <tr>
-            <td>Baris ke 2 - Kolom ke 1</td>
-            <td>Baris ke 2 - Kolom ke 2</td>
-        </tr>
-        </table>        
+        </table></center>
+<center>
+<h1 style="font-size: 30px; font-family: verdana;" id="jam"></h1>
+</center>
+
 </body>
-</html>
+ </html>
