@@ -21,9 +21,9 @@
                 <label for="productSelect"><b>Pilih Produk:</b></label>
                 <select id="productSelect" name="productSelect" required>
                     <option value="" disabled selected>Pilih Produk</option>
-                    <option value="P1">11GB/7ʜᴀʀɪ Rp13.000</option>
-                    <option value="P2">17GB/7ʜᴀʀɪ Rp15.000</option>
-                    <option value="P3">28GB/7ʜᴀʀɪ Rp18.000</option>
+                    <option value="11GB/7ʜᴀʀɪ Rp13.000">11GB/7ʜᴀʀɪ Rp13.000</option>
+                    <option value="17GB/7ʜᴀʀɪ Rp15.000">17GB/7ʜᴀʀɪ Rp15.000</option>
+                    <option value="28GB/7ʜᴀʀɪ Rp18.000">28GB/7ʜᴀʀɪ Rp18.000</option>
                 </select>
             </div>
             <div class="form-group">
@@ -73,7 +73,7 @@
             const quantity = document.getElementById('productQuantity').value;
 
             let orderMessage = `Halo, saya ${customerName} ingin memesan:\n\n`;
-            orderMessage += `${product}: ${quantity}\n`;
+            orderMessage += `${product} x${quantity}\n`;
             orderMessage += `*NO TUJUAN* : ${customerNumber}`;
 
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderMessage)}`;
