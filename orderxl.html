@@ -30,6 +30,9 @@
                 <label for="paymentSelect"><b>Pilih Pembayaran:</b></label>
                 <select id="paymentSelect" name="paymenttSelect" required>
                     <option value="" disabled selected>Pilih Produk</option>
+                    <option value="DANA">DANA</option>
+                    <option value="GOPAY">GOPAY</option>
+                    <option value="SHOPEEPAY">SHOPEEPAY</option>
                     </select>
             </div>
             <div class="form-group">
@@ -62,8 +65,9 @@
             const customerName = document.getElementById('customerName').value;
             const customerNumber = document.getElementById('customerNumber').value;
             const product = document.getElementById('productSelect').value;
+            const payment = document.getElementById('paymentSelect').value;
 
-            if (!customerName || !customerNumber || !product) {
+            if (!customerName || !customerNumber || !product || !payment) {
                 alert("Semua kolom harus diisi.");
                 return;
             }
@@ -76,11 +80,13 @@
             const customerName = document.getElementById('customerName').value;
             const customerNumber = document.getElementById('customerNumber').value;
             const product = document.getElementById('productSelect').value;
+            const payment = document.getElementById('paymentSelect').value;
             const quantity = document.getElementById('productQuantity').value;
 
             let orderMessage = `Halo, saya ${customerName} ingin memesan:\n\n`;
             orderMessage += `${product} x${quantity}\n`;
-            orderMessage += `*NO TUJUAN* : ${customerNumber}`;
+            orderMessage += `*NO TUJUAN* : ${customerNumber}\n`;
+            orderMessage += `*PAYMENT* : ${payment}`;
 
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderMessage)}`;
             window.open(whatsappURL, '_blank');
