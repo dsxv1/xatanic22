@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Produk</title><link rel="stylesheet" href="formwa2.css"> <!-- Menyertakan file CSS -->
+</head>
+<body>
+    <div class="container">
+        <h2>XL EDUKASI</h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="customerName">NAMA:</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+                <label for="customerNumber">NO TUJUAN:</label>
+                <input type="number" id="customerNumber" name="customerNumber" placeholder="08xxxxxxxxxx" required>
+            </div>
+            <div class="form-group">
+                <label for="productSelect"><b>Pilih Produk:</b></label>
+                <select id="productSelect" name="productSelect" required>
+                    <option value="" disabled selected>Pilih Produk</option>
+                    <option value="P1">2GB/3ʜᴀʀɪ Rp3.000</option>
+                    <option value="P2">5GB/3ʜᴀʀɪ Rp5.000</option>
+                    <option value="P3">15GB/7ʜᴀʀɪ Rp15.000</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productQuantity">Jumlah:</label>
+                <div class="quantity-control">
+                    <button type="button" onclick="changeQuantity(-1)">-</button>
+                    <input type="number" id="productQuantity" name="productQuantity" min="1" value="1" readonly>
+                    <button type="button" onclick="changeQuantity(1)">+</button>
+                </div>
+            </div>
+            <button type="button" class="submit-btn" onclick="validateAndSendOrder()">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp Icon">
+                Pesan Sekarang
+            </button>
+        </form>
+        <h4><center>xatanic22.xyz</center></h4>
+    </div>
+    <script>
+        function changeQuantity(amount) {
+            const quantityInput = document.getElementById('productQuantity');
+            let currentQuantity = parseInt(quantityInput.value);
+            currentQuantity += amount;
+            if (currentQuantity < 1) {
+                currentQuantity = 1;
+            }
+            quantityInput.value = currentQuantity;
+        }
+
+        function validateAndSendOrder() {
+            const customerName = document.getElementById('customerName').value;
+            const customerNumber = document.getElementById('customerNumber').value;
+            const product = document.getElementById('productSelect').value;
+
+            if (!customerName || !customerNumber || !product) {
+                alert("Semua kolom harus diisi.");
+                return;
+            }
+
+            sendWhatsAppOrder();
+        }
+
+        function sendWhatsAppOrder() {
+            const phoneNumber = "6285173511500";
+            const customerName = document.getElementById('customerName').value;
+            const customerNumber = document.getElementById('customerNumber').value;
+            const product = document.getElementById('productSelect').value;
+            const quantity = document.getElementById('productQuantity').value;
+
+            let orderMessage = `Halo, saya ${customerName} ingin memesan:\n\n`;
+            orderMessage += `${product}: ${quantity}\n`;
+            orderMessage += `*NO TUJUAN* : ${customerNumber}`;
+
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderMessage)}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
